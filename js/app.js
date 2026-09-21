@@ -89,15 +89,21 @@ Me siento muy feliz y orgulloso de tener a alguien tan espectacular, increible y
     envelopeIconBtn.addEventListener('click', launchExperience);
   }
 
-  // Celebration burst button
+  // Celebration burst button ("Pulsa para lluvia de Flores!!")
   if (burstBtn) {
     burstBtn.addEventListener('click', (e) => {
       const rect = burstBtn.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 2;
+
+      // 1. Rain full sunflowers
+      if (window.triggerSunflowerRain) {
+        window.triggerSunflowerRain(x, y);
+      }
+
+      // 2. Burst golden petals
       if (window.triggerPetalBurst) {
         window.triggerPetalBurst(x, y);
-        // Double burst for celebratory punch
         setTimeout(() => window.triggerPetalBurst(x - 80, y - 40), 150);
         setTimeout(() => window.triggerPetalBurst(x + 80, y - 40), 300);
       }

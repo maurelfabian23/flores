@@ -247,6 +247,99 @@
     }
   }
 
+  const sunflowers = [];
+
+  // Falling Sunflower Class (Full Sunflower with Petals and Seed Disk)
+  class FallingSunflower {
+    constructor(originX, originY) {
+      this.isBurst = originX !== undefined;
+      if (this.isBurst) {
+        this.x = originX + (Math.random() - 0.5) * 60;
+        this.y = originY + (Math.random() - 0.5) * 30;
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.6;
+        const speed = Math.random() * 8 + 4;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.gravity = 0.16;
+      } else {
+        this.x = Math.random() * width;
+        this.y = -60 - Math.random() * 250;
+        this.vx = (Math.random() - 0.5) * 1.5;
+        this.vy = Math.random() * 2 + 1.8;
+      }
+
+      this.size = Math.random() * 12 + 20; // 20px to 32px
+      this.petals = 12;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.05;
+      this.tilt = Math.random() * Math.PI * 2;
+      this.tiltSpeed = Math.random() * 0.04 + 0.02;
+      this.opacity = 1;
+    }
+
+    update() {
+      this.rotation += this.rotSpeed;
+      this.tilt += this.tiltSpeed;
+
+      if (this.isBurst) {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.vx *= 0.98;
+      } else {
+        this.y += this.vy;
+        this.x += this.vx + Math.sin(this.tilt) * 1.2 + wind;
+      }
+    }
+
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.scale(1, Math.cos(this.tilt) * 0.45 + 0.55); // 3D flutter effect
+      ctx.globalAlpha = Math.max(0, this.opacity);
+
+      // Golden Petals around center
+      const petalLength = this.size * 0.85;
+      const petalWidth = this.size * 0.35;
+      ctx.fillStyle = '#ffbe0b';
+      ctx.shadowColor = 'rgba(255, 215, 0, 0.6)';
+      ctx.shadowBlur = 8;
+
+      for (let i = 0; i < this.petals; i++) {
+        ctx.save();
+        ctx.rotate((Math.PI * 2 / this.petals) * i);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(petalWidth, -petalLength * 0.55, 0, -petalLength);
+        ctx.quadraticCurveTo(-petalWidth, -petalLength * 0.55, 0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Dark golden/brown center seed disk
+      ctx.shadowBlur = 0;
+      const centerGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size * 0.38);
+      centerGrad.addColorStop(0, '#2d1400');
+      centerGrad.addColorStop(0.7, '#4a2500');
+      centerGrad.addColorStop(1, '#d97706');
+      ctx.fillStyle = centerGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, this.size * 0.38, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Seed Ring Texture
+      ctx.strokeStyle = '#fcd34d';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([2, 3]);
+      ctx.beginPath();
+      ctx.arc(0, 0, this.size * 0.22, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+  }
+
   // Populate
   for (let i = 0; i < PETAL_COUNT; i++) petals.push(new Petal(false));
   for (let i = 0; i < FIREFLY_COUNT; i++) fireflies.push(new Firefly());
@@ -276,6 +369,20 @@
     }
     for (let i = 0; i < 25; i++) {
       sparkles.push(new Sparkle(burstX, burstY));
+    }
+  };
+
+  // Sunflower Rain trigger (accessible globally)
+  window.triggerSunflowerRain = function (originX, originY) {
+    const burstX = originX || width / 2;
+    const burstY = originY || height / 2;
+    // Burst sunflowers upward from button
+    for (let i = 0; i < 24; i++) {
+      sunflowers.push(new FallingSunflower(burstX, burstY));
+    }
+    // Rain sunflowers from top across the whole screen
+    for (let i = 0; i < 22; i++) {
+      sunflowers.push(new FallingSunflower());
     }
   };
 
@@ -310,6 +417,16 @@
       p.draw();
       if (p.isBurst && p.opacity <= 0) {
         petals.splice(i, 1);
+      }
+    }
+
+    // Draw falling sunflowers
+    for (let i = sunflowers.length - 1; i >= 0; i--) {
+      const sf = sunflowers[i];
+      sf.update();
+      sf.draw();
+      if (sf.y > height + 80) {
+        sunflowers.splice(i, 1);
       }
     }
 
