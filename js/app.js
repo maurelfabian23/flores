@@ -14,7 +14,7 @@
   const letterText = 
 `Dicen que el 21 de septiembre es el día en que florece la primavera y se regalan flores amarillas a las personas que iluminan tu vida... y hoy todas son para ti.
 
-No cualquiera tiene el privilegio de reunir tanta belleza, ingenio y talento en una sola persona. Eres nuestra brillante Ingeniera capaz de resolver cualquier desafío, la Azafata que vuela alto y nos inspira a soñar, la Publicista creativa que llena cada instante de ideas y colores, y por supuesto... nuestra auténtica Barbie llena de estilo, dulzura y luz propia.
+No cualquiera tiene el privilegio de reunir tanta belleza, ingenio y talento en una sola persona. Eres mi brillante Ingeniera capaz de resolver cualquier desafío, la Azafata que vuela alto y me inspira a soñar, la Publicista creativa que llena cada instante de ideas y colores, y por supuesto... mi auténtica Barbie llena de estilo, dulzura y luz propia.
 
 Que cada flor amarilla en este día te recuerde lo profundamente especial, admirada y querida que eres. Gracias por llenar cada rincón de magia. 🌻✨💛`;
 
