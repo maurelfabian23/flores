@@ -10,28 +10,28 @@
   const flowerMessages = [
     {
       icon: '🌻',
-      title: 'Ingeniera Brillante',
-      text: 'Tu mente brillante e inteligencia construyen soluciones extraordinarias.'
+      title: 'Mi Ingeniera de Sistemas Favorita',
+      text: 'Serás la mejor Ingeniera del mundo y mi favorita por siempre mamor.'
     },
     {
       icon: '✈️',
-      title: 'Azafata de Ensueño',
-      text: 'Tu elegancia y espíritu no conocen fronteras. ¡Vuelas alto siempre!'
+      title: 'La mejor Tripulante de Cabina',
+      text: 'La espectacular e increible Azafata que eres no tiene explicación, la mejor de todas mi vida.'
     },
     {
       icon: '💡',
-      title: 'Publicista Creativa',
+      title: 'La publicista que todos sueñan ser',
       text: 'Llenas de magia, color e ideas brillantes cada lugar que pisas.'
     },
     {
       icon: '👑',
-      title: 'Barbie Ariana',
-      text: 'Dulzura, estilo y perfección. Eres única en todo lo que haces.'
+      title: 'Toda una Barbie',
+      text: 'Toda una barbie, porque eres todo lo que quieras ser. Unica en todos los aspectos, mi vida.'
     },
     {
       icon: '💛',
       title: '21 de Septiembre',
-      text: '¡Todas las flores amarillas del mundo son pocas para agradecer tu existencia!'
+      text: 'No hay flores amarillas suficientes para agradecerte lo increible que has sido, te amo un mundo mi bebé.'
     }
   ];
 

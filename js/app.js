@@ -12,11 +12,11 @@
 
   // Romantic and affectionate letter content for Ariana Corpas
   const letterText = 
-`Dicen que el 21 de septiembre es el día en que florece la primavera y se regalan flores amarillas a las personas que iluminan tu vida... y hoy todas son para ti.
+`Dicen que el 21 de septiembre es un dia especial donde se regalan flores amarillas a las personas que iluminan tu vida, pero es que tu la iluminas todos los dias.
 
-No cualquiera tiene el privilegio de reunir tanta belleza, ingenio y talento en una sola persona. Eres mi brillante Ingeniera capaz de resolver cualquier desafío, la Azafata que vuela alto y me inspira a soñar, la Publicista creativa que llena cada instante de ideas y colores, y por supuesto... mi auténtica Barbie llena de estilo, dulzura y luz propia.
+Me siento muy feliz y orgulloso de tener a alguien tan espectacular, increible y hermosa persona como tu en mi vida. Eres la Publicista creativa y loquita que llena todo de color, la Azafata determinada y enfocada que siempre quiere lograr lo que se propone, la Ingeniera que siempre quiere crear todo lo que piensa y la Barbie que siempre es lo que quiera ser.
 
-Que cada flor amarilla en este día te recuerde lo profundamente especial, admirada y querida que eres. Gracias por llenar cada rincón de magia. 🌻✨💛`;
+Ño tengo palabras para agradecerte por todo mi vida, eres la mejor persona que he conocido. Te amo muchisimo. Gracias por todo y perdon por tan poco.`;
 
   let hasStarted = false;
 
@@ -70,7 +70,7 @@ Que cada flor amarilla en este día te recuerde lo profundamente especial, admir
       if (i < text.length) {
         const char = text.charAt(i);
         if (char === '\n') {
-          typewriterTarget.innerHTML += '<br><br>';
+          typewriterTarget.innerHTML += '<br>';
         } else {
           typewriterTarget.innerHTML += char;
         }
