@@ -54,11 +54,11 @@
   will-change: transform;
 }
 
-/* Organic rotations */
-.polaroid-card:nth-child(1) { transform: rotate(-2.5deg); }
-.polaroid-card:nth-child(2) { transform: rotate(2deg) translateY(-8px); }
-.polaroid-card:nth-child(3) { transform: rotate(-1.5deg); }
-.polaroid-card:nth-child(4) { transform: rotate(2.8deg) translateY(-5px); }
+/* Organic rotations for cards */
+.polaroid-card:nth-child(4n + 1) { transform: rotate(-2.5deg); }
+.polaroid-card:nth-child(4n + 2) { transform: rotate(2deg) translateY(-6px); }
+.polaroid-card:nth-child(4n + 3) { transform: rotate(-1.8deg) translateY(4px); }
+.polaroid-card:nth-child(4n + 4) { transform: rotate(2.6deg) translateY(-3px); }
 
 .polaroid-card:hover {
   transform: scale(1.06) rotate(0deg) translateY(-10px) !important;
