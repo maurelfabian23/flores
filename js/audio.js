@@ -15,7 +15,7 @@
 
   // Native HTML5 Audio
   const audio = new Audio();
-  audio.src = 'assets/audio/flores-amarillas.mp3';
+  audio.src = encodeURI('assets/audio/Flores Amarillas.mp3');
   audio.loop = true;
   audio.volume = 0;
 
@@ -25,8 +25,8 @@
     usingSynthesizer = true;
   });
 
-  // Fade-in volume helper
-  function fadeInAudio(targetVol = 0.65, durationMs = 2500) {
+  // Fade-in volume helper (capped at 75% for a pleasant listening experience)
+  function fadeInAudio(targetVol = 0.75, durationMs = 2000) {
     let current = 0;
     const step = 0.05;
     const intervalTime = durationMs / (targetVol / step);
@@ -158,7 +158,7 @@
 
     if (!usingSynthesizer) {
       audio.play().then(() => {
-        fadeInAudio(0.7);
+        fadeInAudio(0.75);
       }).catch(() => {
         // Autoplay policy or 404 -> use synthesizer
         usingSynthesizer = true;
