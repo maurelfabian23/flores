@@ -91,7 +91,10 @@ Me siento muy feliz y orgulloso de tener a alguien tan espectacular, increible y
 
   // Celebration burst button ("Pulsa para lluvia de Flores!!")
   if (burstBtn) {
-    burstBtn.addEventListener('click', (e) => {
+    function launchCelebrationRain(e) {
+      if (e && e.type === 'touchstart') {
+        e.preventDefault();
+      }
       const rect = burstBtn.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 2;
@@ -107,6 +110,9 @@ Me siento muy feliz y orgulloso de tener a alguien tan espectacular, increible y
         setTimeout(() => window.triggerPetalBurst(x - 80, y - 40), 150);
         setTimeout(() => window.triggerPetalBurst(x + 80, y - 40), 300);
       }
-    });
+    }
+
+    burstBtn.addEventListener('click', launchCelebrationRain);
+    burstBtn.addEventListener('touchstart', launchCelebrationRain, { passive: false });
   }
 })();

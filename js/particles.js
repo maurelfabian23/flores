@@ -66,17 +66,17 @@
   // Petal Class (Yellow Flower Petal)
   class Petal {
     constructor(isBurst = false, originX, originY) {
+      this.reset(true);
       this.isBurst = isBurst;
       if (isBurst) {
-        this.x = originX || width / 2;
-        this.y = originY || height / 2;
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 8 + 3;
+        this.x = originX !== undefined ? originX : width / 2;
+        this.y = originY !== undefined ? originY : height / 2;
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.8;
+        const speed = Math.random() * 8 + 4;
         this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed - 2;
-        this.gravity = 0.12;
-      } else {
-        this.reset(true);
+        this.vy = Math.sin(angle) * speed;
+        this.gravity = 0.14;
+        this.opacity = 1;
       }
     }
 

@@ -254,11 +254,9 @@
   function showFlowerMessage(idx, evt) {
     const msg = flowerMessages[idx % flowerMessages.length];
     toastEl.innerHTML = `
-      <span style="font-size: 1.5rem;">${msg.icon}</span>
-      <div>
-        <strong style="color: var(--gold-pure); display: block; font-size: 0.95rem;">${msg.title}</strong>
-        <span>${msg.text}</span>
-      </div>
+      <span class="toast-icon">${msg.icon}</span>
+      <strong class="toast-title">${msg.title}</strong>
+      <span class="toast-text">${msg.text}</span>
     `;
     toastEl.classList.add('visible');
 
