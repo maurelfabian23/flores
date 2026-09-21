@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Flores Amarillas para Ariana Corpas 🌻💛</title>
+  
+  <!-- SEO & Social Open Graph (WhatsApp, Instagram, Twitter) -->
+  <meta name="description" content="Un detalle mágico, brillante y especial para nuestra Ingeniera, Azafata, Publicista y Barbie favorita en el Día de las Flores Amarillas.">
+  <meta name="author" content="Maurel Fabian">
+  <meta name="theme-color" content="#070913">
+  
+  <meta property="og:title" content="Flores Amarillas para Ariana Corpas 🌻💛">
+  <meta property="og:description" content="Toca aquí para abrir una sorpresa única y especial preparada especialmente para ti.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/photos/photo1.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/polaroid.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+</head>
+<body>
+
+  <!-- Night Sky Backdrop -->
+  <div class="night-sky-overlay"></div>
+
+  <!-- Interactive Canvas for Falling Petals, Fireflies & Stars -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- =========================================================
+       INTRO MODAL: "ABRIR REGALO" (Desbloquea Audio y Animación)
+       ========================================================= -->
+  <div id="introOverlay" class="intro-overlay">
+    <div class="intro-badge">✨ 21 de Septiembre • Una sorpresa para ti</div>
+    
+    <div class="envelope-card">
+      <button id="envelopeIconBtn" class="envelope-icon-btn" aria-label="Abrir sorpresa">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </button>
+
+      <h1 class="intro-title">
+        Tienes un detalle
+        <span>muy especial esperando</span>
+      </h1>
+      
+      <p class="intro-subtitle">
+        Para nuestra Ingeniera, Azafata, Publicista y Barbie favorita. Sube el volumen y toca el botón.
+      </p>
+
+      <button id="openSurpriseBtn" class="open-gift-btn">
+        <span>Abrir mi detalle</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MAIN EXPERIENCE CONTAINER
+       ========================================================= -->
+  <main id="mainWrapper" class="main-wrapper">
+    <div class="container">
+      
+      <!-- HERO HEADER -->
+      <header class="hero-header">
+        <div class="hero-date-badge">
+          <span>🌻 21 de Septiembre</span>
+          <span>•</span>
+          <span>Día de las Flores Amarillas</span>
+        </div>
+
+        <p class="hero-pretitle">Con todo mi cariño para</p>
+        
+        <h1 class="hero-main-title">
+          <span class="name-highlight">Ariana Corpas</span>
+        </h1>
+
+        <!-- ROLE PILLS -->
+        <div class="titles-pills">
+          <span class="role-pill">🛠️ Ingeniera Brillante</span>
+          <span class="role-pill">✈️ Azafata de Ensueño</span>
+          <span class="role-pill">💡 Publicista Creativa</span>
+          <span class="role-pill barbie">💖 Barbie Ariana</span>
+        </div>
+      </header>
+
+      <!-- CENTRAL BLOOMING BOUQUET STAGE -->
+      <section class="flowers-stage-section" aria-label="Ramo de flores amarillas">
+        <div class="flowers-glow-halo"></div>
+        <div id="bouquetContainer" class="bouquet-svg-container">
+          <!-- Rendered dynamically by js/flowers.js -->
+        </div>
+        <div class="interactive-flower-hint">
+          <span>✨</span>
+          <span>Toca cada flor para descubrir un mensaje especial</span>
+          <span>🌻</span>
+        </div>
+      </section>
+
+      <!-- DEDICATION LETTER CARD -->
+      <section class="letter-section" aria-label="Carta de dedicatoria">
+        <div class="letter-card">
+          <div class="letter-wax-stamp" title="Sello de amor y admiración">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+
+          <h2 class="letter-salutation">Mi queridísima Ariana,</h2>
+          
+          <div class="letter-content">
+            <span id="typewriterText"></span><span class="typewriter-cursor"></span>
+          </div>
+
+          <p class="letter-signature">
+            Con todo mi cariño y admiración, siempre 💛
+          </p>
+        </div>
+      </section>
+
+      <!-- POLAROID MEMORIES GALLERY -->
+      <section class="polaroid-section" aria-label="Galería de recuerdos">
+        <div class="section-header">
+          <p class="section-pretitle">Momentos que iluminan</p>
+          <h2 class="section-title">Nuestros <span>Recuerdos Favoritos</span></h2>
+        </div>
+
+        <div class="polaroid-grid">
+          <!-- Card 1 -->
+          <div class="polaroid-card" 
+               data-title="Golden Hour Radiante" 
+               data-note="Tu sonrisa tiene más luz que un atardecer de verano en un campo de girasoles.">
+            <div class="washi-tape"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/photos/photo1.jpg" alt="Ariana Sonriendo" loading="lazy">
+            </div>
+            <div class="polaroid-caption">
+              Luz y Alegría 💛
+              <small>Sonrisas que iluminan todo</small>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="polaroid-card" 
+               data-title="Para Ti, Siempre" 
+               data-note="Un ramo eterno de flores amarillas para recordarte lo mucho que vales y lo especial que eres.">
+            <div class="washi-tape"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/photos/photo2.jpg" alt="Ramo de Flores Amarillas" loading="lazy">
+            </div>
+            <div class="polaroid-caption">
+              Flores Eternas 🌻
+              <small>Promesa de cariño puro</small>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="polaroid-card" 
+               data-title="Elegancia & Encanto" 
+               data-note="Ingeniera, azafata y reina de todo. No hay nada en este mundo que no puedas lograr.">
+            <div class="washi-tape"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/photos/photo3.jpg" alt="Momentos Especiales" loading="lazy">
+            </div>
+            <div class="polaroid-caption">
+              Nuestra Barbie 👑
+              <small>Talento, inteligencia y clase</small>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="polaroid-card" 
+               data-title="Bajo el Cielo Estrellado" 
+               data-note="Donde sea que estés, siempre brillas como la estrella más hermosa del universo.">
+            <div class="washi-tape"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/photos/photo4.jpg" alt="Flores bajo las estrellas" loading="lazy">
+            </div>
+            <div class="polaroid-caption">
+              Noche Mágica ✨
+              <small>21 de Septiembre para siempre</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CELEBRATION PETAL BURST ACTION -->
+      <section class="celebrate-action-bar">
+        <button id="burstBtn" class="burst-petals-btn">
+          <span>¡Lluvia de Flores Amarillas!</span>
+          <span style="font-size: 1.4rem;">🌻✨</span>
+        </button>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="page-footer">
+        <p>Hecho con todo el amor y admiración para <strong>Ariana Corpas</strong> 💛</p>
+        <p style="margin-top: 0.4rem; opacity: 0.75;">21 de Septiembre • Día de las Flores Amarillas</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- =========================================================
+       FLOATING AUDIO PLAYER WIDGET
+       ========================================================= -->
+  <div id="audioWidget" class="audio-player-widget">
+    <button id="musicDiscBtn" class="music-disc-btn" aria-label="Pausar o reproducir música">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+    </button>
+    <div class="audio-info">
+      <span id="trackTitle" class="audio-track-title">Flores Amarillas (Acústica)</span>
+      <span id="trackStatus" class="audio-track-status">Pausado</span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       LIGHTBOX MODAL FOR POLAROIDS
+       ========================================================= -->
+  <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-hidden="true">
+    <div class="lightbox-content">
+      <button id="lightboxCloseBtn" class="lightbox-close-btn" aria-label="Cerrar imagen">&times;</button>
+      <div class="lightbox-img-wrapper">
+        <img id="lightboxImg" src="" alt="Recuerdo">
+      </div>
+      <h3 id="lightboxCaption" class="lightbox-caption"></h3>
+      <p id="lightboxNote" class="lightboxNote lightbox-note"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/flowers.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
